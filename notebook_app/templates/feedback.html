@@ -1,0 +1,29 @@
+
+<!-- ============== IS THERE =================== -->
+
+{% extends "layout.html" %}
+
+{% block content %}
+<div class="pt-5">
+    {% for feedback in feedbacks %}
+    {% if feedback %}
+        <div class="card mb-3">
+            <div class="card-header">
+                {{ feedback.subject }}
+            </div>
+            <div class="card-body">
+            <blockquote class="blockquote mb-0">
+                <p>{{ feedback.message }}</p>
+                <div class="blockquote-footer">{{ feedback.name }} - <span class="">{{ feedback.email }}</span></div>
+            </blockquote>
+            </div>
+            <div class="card-footer">
+                <a href="{{ url_for('delete_feedback', feed_id=feedback.id) }}" class="btn btn-danger">DELETE</a>
+            </div>
+        </div>
+    {% else %}
+        <div class="alert alert-info">There is no feedback yet !</div>
+    {% endif %}
+{% endfor %}
+</div>
+{% endblock %}

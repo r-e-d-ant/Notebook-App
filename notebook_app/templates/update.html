@@ -1,0 +1,48 @@
+
+
+{% extends "layout.html" %}
+
+{% block content %}
+<div class="my__container">
+    <div class='content-section mb-5'>
+    <form action="" method='POST'>
+        {{ form.hidden_tag() }}
+        <fieldset class='form-group'>
+            <div class='form-group mt-5'>
+                {{ form.subject.label(class='email_label form-control-label') }}
+                {% if form.subject.errors %}
+                {{ form.subject(class="form-control form-control-lg is-invalid pb-1") }}
+                <div class='invalid-feedback'>
+                    {% for error in form.subject.errors %}
+                    <span>{{ error }}</span>
+                    {% endfor %}
+                </div>
+                {% else %}
+                {{ form.subject(class='form-control form-control-lg') }}
+                {% endif %}
+            </div>
+
+            <!----------------------->
+            <div class='form-group mt-3'>
+                {{ form.notes.label(class='email_label form-control-label')}}
+                {% if form.notes.errors %}
+                {{ form.notes(class="form-control form-control-lg is-invalid pb-5") }}
+                <div class='invalid-feedback'>
+                    {% for error in form.notes.errors %}
+                    <span>{{ error }}</span>
+                    {% endfor %}
+                </div>
+                {% else %}
+                {{ form.notes(class='form-control form-control-lg pb-5')}}
+                {% endif %}
+            </div>
+        </fieldset>
+        <div class='form-group mt-3'>
+            {{ form.updateNoteBtn(class='btn mt-2 sign_in_btn mb-4')}}
+        </div>
+    </form>
+</div>
+</div>
+{% endblock content %}
+
+

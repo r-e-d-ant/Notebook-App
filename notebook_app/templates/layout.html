@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
+    <!---- BOXICONS ------>
+    <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+
+    <!-- MY OWN CSS -->
+    <link rel="stylesheet" type='text/css' href="{{ url_for('static', filename='main.css') }}">
+
+    {% if title %}
+        <title>{{ title }}</title>
+    {% else %}
+        <title>Summary-noteBook</title>
+    {% endif %}
+  </head>
+  <body>
+    <header class="header bg-success">
+        <i class="bx bx-menu toggle open__menu_toggle" id="open-menu-toggle"></i>
+
+        <nav class="nav_image_container">
+            <img src="static/photos/undraw_Notebook_re_id0r.svg" class="note__image" alt="image of a cartoon reading a book">
+        </nav>
+
+        {% if current_user.is_authenticated %}
+        <a href="{{ url_for('home') }}" class="web__title">notebook</a>
+        {% else %}
+        <a href="#" class="web__title">notebook</a>
+        {% endif %}
+
+        <div class="nav__links" id="nav-links">
+            <i class="bx bx-x toggle close__menu_toggle" id="close-menu-toggle"></i>
+
+            {% if current_user == superuser %}
+                <a href="{{ url_for('feedback') }}" class="nav__link">Feedback</a>
+            {% endif %}
+
+            {% if current_user.is_authenticated %}
+                <a href="{{ url_for('home') }}" class="nav__link">Home</a>
+                <a href="{{ url_for('contact') }}" class="nav__link">Contact</a>
+                <a href="{{ url_for('account', user_id=current_user.id) }}" class="nav__link">Account</a>
+                <a href="{{ url_for('logout') }}" class="nav__link">Logout</a>
+                {% else %}
+                 <a href="{{ url_for('contact') }}" class="nav__link">Contact</a>
+                 <a href="{{ url_for('signin') }}" class="nav__link">Signin</a>
+                 <a href="{{ url_for('signup') }}" class="nav__link">Signup</a>
+            {% endif %}
+        </div>
+    </header>
+    <main role="main">
+        <div class="section__content">
+            <div class="my__container">
+                {% with messages = get_flashed_messages(with_categories=true) %}
+                {% if messages %}
+                    {% for category, message in messages %}
+                        <div class="alert alert-{{ category }}">
+                        {{ message }}
+                        </div>
+                    {% endfor %}
+                {% endif %}
+            {% endwith %}
+            </div>
+            {% block content %}{% endblock %}
+        </div>
+    </main>
+
+    <script type="text/javascript" src="{{ url_for('static', filename='main.js') }}"></script>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+  </body>
+</html>

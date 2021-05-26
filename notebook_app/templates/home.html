@@ -1,0 +1,95 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<div class="main_subject_adder_container" id="main-subject-adder-container">
+    <form class="add_subject_container" action="{{ url_for('add_subject') }}" method='POST'>
+        {{ form.hidden_tag() }}
+        <i class='bx bx-message-square-x'id="bx-message-square-x"></i>
+        <fieldset class="add_forms">
+            <div class='form-group'>
+                {{ form.subjects_name.label(class="form-control-label password_label fs__2rem mb-2", id="new_subjects") }}
+                    {% if form.subjects_name.errors %}
+                        {{ form.subjects_name(class="form-control form-control-lg is-invalid", placeholder="Type new subject here... e.g: Maths, Physics") }}
+                        <div class='invalid-feedback'>
+                            {% for error in form.subjects_name.errors %}
+                                <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{ form.subjects_name(class="form-control form-control-lg", placeholder="Type new subject here... e.g: Maths, Physics") }}
+                {% endif %}
+            </div>
+
+            <div class="form-group">
+                {{ form.submitSubjectUpdateBtn(class='btn mt-2 add_subject mb-4') }}
+            </div>
+        </fieldset>
+
+    <div class="registered_subjects">
+        {% for subject in users_subjects|sort(attribute='date_added', reverse=True) %}
+            <div class="subject_card">
+                <h2 class="subject_show_modal dark__color">{{ subject.subjects_name.title() }}</h2>
+                <div class="action_to_subject">
+                    <div><a href="{{ url_for('delete_subject', subject_id=subject.id) }}"><i class='bx bx-x-circle' title="Delete the subject"></i></a></div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+    </form>
+</div>
+
+<div class="my__container main">
+    <div class='content-section mb-5'>
+    <form action="" method='POST'>
+        <fieldset class='form-group'>
+            <div class='form-group'>
+                <label class="form-control-label ff__indie_flower fs__2rem mb-2">Subject</label>
+                <div class="form-group input__container">
+                    <input id="subject-input" type="text" name="subject" list="subjects" class="form-control form-control-lg" required="true" autofocus="true">
+                    <i class='bx bx-plus-circle' id="bx-plus-circle" title="Add other many subjects"></i>
+                </div>
+                <datalist id="subjects">
+                    {% for subject in users_subjects|sort(attribute='date_added', reverse=True) %}
+                        <option value={{ subject.subjects_name.title() }}></option>
+                    {% endfor %}
+                </datalist>
+            </div>
+            <!----------------------->
+            <div class='form-group mt-4'>
+                <label class="form-control-label ff__indie_flower fs__2rem mb-2">Notes</label>
+                <textarea name="notes" class="form-control form-control-lg form__notes_input" required="true"></textarea>
+            </div>
+        </fieldset>
+        <input type="submit" value="SAVE" class="btn btn-outline-info ff__patrick_hand btn__size">
+    </form>
+</div>
+
+<div class=''>
+    {% for note in notes|sort(attribute='date_saved', reverse=True) %}
+    <div class="card mt-5">
+        <div class="card-header ff__indie_flower fs__2rem">
+            {{ note.subjects }}
+        </div>
+        <div class="card-body">
+            <div class="notes__container mb-4">
+                <div>
+                    <p class="card-text font-weight-light article-content note__content">{{ note.notes }}</p>
+                </div>
+            </div>
+
+            <div class="footer__btn">
+                <a href="{{url_for('delete_note', note_id=note.id)}}"><button type="button"
+                    class="btn btn-danger ff__patrick_hand mt-3 btn__size mr-3" title="If you click on this button this note will be deleted." style="letter-spacing: 1px;">Delete</button></a>
+                    
+            <a href="{{url_for('update', note_id=note.id)}}"><button type="button"
+                    class="btn btn-warning ff__patrick_hand mt-3 btn__size" style="letter-spacing: 1px;">Update</button></a>
+            </div>
+        </div>
+        <div class="card-footer font-weight-light">
+            <span>{{ note.date_saved.strftime('%a, %h %d, %Y - %-I:%M %p') }}</span>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+</div>
+{% endblock %}

@@ -1,0 +1,56 @@
+
+{% extends "layout.html" %}
+
+{% block content %}
+	<section class="my__container">
+		<div class="account__container"><!-- ACCOUNT PAGE CONTAINER -->
+			<div class="pp_container"><!-- PROFILE PIC CONTAINER -->
+				<img class="rounded-circle profile_image" src="{{ url_for('static', filename='photos/default.jpg') }}">
+				<span class="edit_photo_label">Edit</span>
+			</div>
+
+			<form action="" method="POST">
+				<fieldset>
+					<form action="" method="POST">
+						{{ form.hidden_tag() }}
+						<div class='form-group'>
+							{{ form.username.label(class="email_label form-control-label", id="username") }}
+
+							{% if form.username.errors %}
+								{{ form.username(class="form-control form-control-lg is-invalid") }}
+
+								<div class='invalid-feedback'>
+									{% for error in form.username.errors %}
+										<span>{{ error }}</span>
+									{% endfor %}
+								</div>
+							{% else %}
+
+								{{ form.username(class="form-control form-control-lg") }}
+							{% endif %}
+						</div>
+
+						<div class='form-group'>
+							{{ form.email.label(class="email_label form-control-label", id="email") }}
+
+							{% if form.email.errors %}
+								{{ form.email(class="form-control form-control-lg is-invalid") }}
+
+								<div class='invalid-feedback'>
+									{% for error in form.email.errors %}
+										<span>{{ error }}</span>
+									{% endfor %}
+								</div>
+							{% else %}
+
+								{{ form.email(class="form-control form-control-lg") }}
+							{% endif %}
+						</div>
+					</fieldset>
+					<div class='form-group'>
+					{{ form.updateAccBtn(class='btn mt-2 sign_in_btn mb-4') }}
+				</div>
+			</form>
+		</div>
+	</section>
+{% endblock %}

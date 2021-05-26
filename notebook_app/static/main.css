@@ -1,0 +1,509 @@
+
+/* ----------------------- FONT FAMILY FROM GOOGLE FONTS ----------------- */
+/* Patrick Hand */
+@import url('https://fonts.googleapis.com/css2?family=Patrick+Hand&display=swap');
+
+/* Indie Flower */
+@import url('https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap');
+
+/* ----------------------- VARIABLES ----------------- */
+:root {
+    --primary-color: rgb(0, 191, 168);
+    --primary-color-alt: rgb(0, 191, 140);
+    --white-color: #FAFAFF;
+    --orange-color: rgb(252, 221, 221);
+    --orange-color-alt: rgb(253, 237, 237);
+    --dark-color: #474664;
+    --dark-color-alt: #2e2d3d;
+    --indigo-white: #f0f3f7;
+}
+
+/* ----------------------- BASE ----------------- */
+body {
+    font-family: sans-serif;
+}
+a {
+    text-decoration: none;
+}
+li {
+    list-style: none;
+}
+
+.ff__indie_flower {
+    font-family: 'Indie Flower', sans-serif;
+}
+.ff__patrick_hand {
+    font-family: 'Patrick Hand', sans-serif;
+}
+.fs__1rem {
+    font-size: 1rem;
+}
+.fs__2rem {
+    font-size: 1.5rem;
+}
+.fs__3rem {
+    font-size: 2rem;
+}
+.fs__4rem {
+    font-size: 2.5rem;
+}
+.fs__5rem {
+    font-size: 3rem;
+}
+
+.dark__color {
+    color: var(--dark-color);
+}
+
+
+/* ----------------------- OTHER ----------------- */
+
+.btn-outline-info {
+    color: var(--primary-color);
+    border: thin solid var(--primary-color);
+}
+
+.btn-outline-info:hover {
+    background-color: var(--primary-color);
+}
+
+.bg-success {
+    background-color: var(--primary-color) !important;
+}
+
+/* ----------------------- NAV/HEADER ----------------- */
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: .5em 2em .5em 0;
+}
+.toggle {
+    display: none;
+    cursor: pointer;
+    font-size: 2rem;
+    color: var(--white-color);
+    transition: .3s;
+}
+.toggle:hover {
+    color: var(--orange-color);
+}
+
+.note__image {
+    display: none;
+    width: 200px;
+    height: 70px;
+}
+
+.nav__links {
+    display: flex;
+    flex-direction: row;
+}
+
+.nav__link {
+    color: var(--white-color);
+    font-family: 'Indie Flower', sans-serif;
+    margin: 0 .5em;
+    font-size: 22px;
+    transition: color .3s;
+}
+
+.nav__link:hover {
+    color: var(--dark-color);
+    text-decoration: none;
+}
+
+.web__title {
+    color: var(--white-color);
+    text-transform: uppercase;
+    text-decoration: none;
+    letter-spacing: .2em;
+    font-size: 22px;
+    font-family: 'Indie Flower', sans-serif;
+    transition: color .4s;
+}
+
+.web__title:hover {
+    color: var(--dark-color);
+    text-decoration: none;
+}
+
+/* ----------------------- MAIN ----------------- */
+.main {
+    position: relative;
+}
+.section__content {
+    padding: 2em 0;
+}
+
+.form-control {
+    font-family: 'Patrick Hand', sans-serif;
+    letter-spacing: 1px;
+    transition: box-shadow .3s;
+}
+
+.form-control:focus {
+    box-shadow: 0px 0px 5px rgb(71, 70, 100);
+    border: none;
+}
+
+.form__notes_input {
+    min-height: 10em;
+    height: 100%;
+}
+
+.input__container {
+    position: relative;
+}
+
+.bx-plus-circle, .bx-message-square-x{
+    cursor: pointer;
+    padding: 0 .5em 0 0;
+    position: absolute;
+    top: 12px;
+    right: 0;
+    font-size: 24px;
+    color: var(--dark-color);
+    transition: color .4s;
+}
+.bx-message-square-x {
+    font-size: 32px;
+    transition: .4s;
+}
+.bx-message-square-x:hover {
+    font-size: 34px;
+}
+.bx-plus-circle:hover {
+    color: var(--primary-color);
+}
+
+.note__content {
+    white-space: pre;
+    font-family: 'Patrick Hand', sans-serif;
+    letter-spacing: 1px;
+    font-size: 22px;
+}
+
+.card-header {
+    background-color: var(--primary-color);
+    color: var(--white-color);
+}
+
+.card-body {
+    background-color: var(--orange-color);
+    color: var(--dark-color);
+}
+
+
+.btn__size {
+    font-size: 1.1rem;
+}
+
+.footer__btn {
+    border-top: thin solid var(--primary-color);
+}
+
+.card-footer {
+    background-color: var(--orange-color-alt);
+    color: var(--dark-color);
+}
+.main_subject_adder_container {
+    z-index: 1000;
+    position: relative;
+    display: none;
+    transition: .5s;
+}
+
+.add_subject_container {
+    box-shadow: 5px 8px 10px rgb(71, 70, 100, 0.5);
+    padding: 2em 1em;
+    border-radius: 5px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -5%);
+    background-color: var(--indigo-white);
+    min-width: 100%;
+    height: 500px;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+.add_subject {
+    background: transparent;
+    border: thin solid var(--dark-color);
+    color: var(--dark-color);
+    font-family: 'Patrick Hand', sans-serif;
+    font-size: 20px;
+    letter-spacing: 1px;
+    transition: .5s;
+}
+
+.add_subject:hover {
+    background-color: var(--dark-color);
+    color: var(--white-color);
+}
+
+.show_main_subject_adder_container {
+    display: block;
+}
+
+.registered_subjects {
+}
+
+.subject_show_modal {
+    padding: 1em .5em;
+    margin: .5em 0;
+    border-radius: 5px;
+    color: var(--dark-color);
+    font-size: .99rem;
+    letter-spacing: .1rem;
+    background-color: #FAFAFF;
+    box-shadow: 2px 3px 5px rgb(71, 70, 100, 0.1);
+    transition: .4s;
+}
+
+.subject_show_modal:hover {
+    box-shadow: 5px 10px 5px rgb(71, 70, 100, 0.2);
+}
+
+.subject_card {
+    display: grid;
+    grid-template-columns: 1fr 60px;
+    align-items: center;
+}
+
+.action_to_subject {
+    display: flex;
+}
+
+.bx-x-circle {
+    background-color: #FAFAFF;
+    color: var(--dark-color);
+    border-radius: 5px;
+    padding: .3em .5em;
+    margin: 0 .2em;
+    cursor: pointer;
+    font-size: 2rem;
+    transition: .4s;
+    box-shadow: 2px 3px 5px rgb(71, 70, 100, 0.1);
+}
+
+.bx-x-circle:hover {
+    box-shadow: 5px 10px 5px rgb(71, 70, 100, 0.2);
+}
+
+
+
+/* ------======= LOGIN AND SIGN UP STYLES ======--------- */
+.section {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.login__container {
+    width: 100%;
+}
+.note__image_login {
+    display: none;
+}
+.outer__line {
+    display: none;
+}
+.sign_in_btn {
+    background: transparent;
+    border: thin solid var(--dark-color);
+    color: var(--dark-color);
+    font-family: 'Patrick Hand', sans-serif;
+    font-size: 24px;
+    letter-spacing: 1px;
+}
+.sign_in_btn:hover {
+    background: var(--primary-color);
+    color: var(--dark-color-alt);
+}
+.text_patrick_style {
+    text-transform: capitalize;
+    font-family: 'Patrick Hand', sans-serif;
+    font-size: 24px;
+    letter-spacing: 1px;
+}
+.email_label, .password_label {
+    color: var(--dark-color);
+    text-transform: capitalize;
+    font-family: 'Patrick Hand', sans-serif;
+    font-size: 24px;
+    letter-spacing: 1px;
+}
+
+/* ------====== ACCOUNT PAGE STYLES ======-------- */
+
+.profile_image {
+    width: auto;
+    height: 100%;
+}
+
+.edit_photo_label {
+    position: absolute;
+    bottom: 10px;
+    font-family: 'Patrick Hand', sans-serif;
+    font-size: 1.8rem;
+    letter-spacing: 1px;
+}
+
+.pp_container {
+    background-color: rgb(0, 191, 168, .2);
+    border-radius: 5px;
+    padding: 10px 0;
+    margin: 0 0 15px 0;
+    cursor: pointer;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: rgb(153, 153, 153);
+    transition: .3s;
+}
+
+.pp_container:hover {
+    color: var(--white-color);
+}
+
+/* ----------------------- KEY FRAMES ----------------- */
+
+/* ====== MAXS ====== */
+
+@media screen and (max-width: 1000px){
+    .section {
+        justify-content: space-around;
+        flex-direction: column;
+    }
+    .vertical__line {
+        display: none;
+    }
+    .outer__line {
+        padding: 1em 0;
+    }
+    .horizontal__line {
+        display: block;
+        width: 50rem;
+        height: 1px;
+        background: rgba(210, 210, 210, 1);
+    }
+}
+
+@media screen and (max-width: 768px){
+    .my__container, .section {
+        padding: 0 2em;
+    }
+}
+
+@media screen and (max-width: 578px){
+    .header {
+        padding: 1em 2em;
+    }
+    .nav__links {
+        z-index: 2;
+        background-color: var(--primary-color);
+        height: 100vh;
+        padding: 1em 1em 0 1em;
+        line-height: 3em;
+        flex-direction: column;
+        position: absolute;
+        top: 0;
+        left: -100%;
+        transition: left .5s;
+    }
+
+    .open__menu_toggle {
+        display: block;
+    }
+    .close__menu_toggle {
+        display: block;
+    }
+    /* TO BE ACTIVATED BY JS EVENT */
+    .show {
+        left: 0;
+    }
+}
+
+
+@media screen and (max-width: 345px){
+    .header {
+        justify-content: space-between;
+        padding: 0.5em;
+    }
+    .note__image {
+        display: none;
+    }
+    .web__title {
+        font-size: 24px;
+    }
+    .my__container, .section {
+        padding: 0 .2em;
+    }
+}
+
+
+/* ====== MINUMUMS ====== */
+
+@media screen and (min-width: 768px){
+    .note__image {
+        display: block;
+    }
+    .section__content {
+        padding: 3em 4em;
+    }
+
+    .subject_card {
+        grid-template-columns: 1fr 50px;
+    }
+    .bx-x-circle {
+        padding: .6em .5em;
+        margin: 0 .2em;
+        cursor: pointer;
+        font-size: 1.5rem;
+    }
+
+    /* ------======= LOGIN AND SIGN UP STYLES ======--------- */
+    .section {
+        justify-content: space-between;
+    }
+    .section__child {
+        padding: 0 2em;
+    }
+    .note__image_login {
+        display: block;
+        width: 500px;
+        height: auto;
+    }
+    .outer__line {
+        display: block;
+    }
+    .vertical__line {
+        width: 1px;
+        height: 25em;
+        background: rgba(71, 70, 100, .3);
+    }
+    .horizontal__line {
+        display: none;
+    }
+    .my__container {
+        padding: 0 3em;
+    }
+    .email_label, .password_label {
+        font-size: 22px;
+    }
+    .sign_in_btn {
+        font-size: 22px;
+    }
+}
+
+@media screen and (min-width: 1078px){
+    .section__content {
+        padding: 3em 5em;
+    }
+    .my__container {
+        padding: 0 5em;
+    }
+}
