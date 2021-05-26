@@ -13,7 +13,7 @@ I. Copy and paste:
 3. Then this command: pip3 install -r requirements.txt
 4. Then this command: python3 run.py
 
-II. If it work without any error: open browser then paste this: http://127.0.0.1:5000/
+II. If it work without any error: open browser then copy and paste this url in url form: http://127.0.0.1:5000/
 III. If there is an error let me know. :)
 ```
 
