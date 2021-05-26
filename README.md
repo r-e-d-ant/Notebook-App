@@ -2,6 +2,8 @@
 Notebook app made with Flask, a Python Web application framework for Back-end. And HTML/CSS, JavaScript for Front-end.
 --------
 
+• You can try demo here: https://a-notebook-app.herokuapp.com/
+
 ```
 # How to run the app.
 Open Terminal then
@@ -16,8 +18,6 @@ I. Copy and paste:
 II. If it work without any error: open browser then copy and paste this url in url form: http://127.0.0.1:5000/
 III. If there is an error let me know. :)
 ```
-
-• You can try demo here: https://a-notebook-app.herokuapp.com/
 
 ```
 • With this notebook app you can:
