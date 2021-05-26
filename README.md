@@ -27,7 +27,7 @@ III. If there is an error let me know. :)
 * Store your notes.
 * Update notes.
 * Delete notes.
-* Search notes bu subject.
+* Search notes by subject.
 ```
 
 •• ScreenShots
