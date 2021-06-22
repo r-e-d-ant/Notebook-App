@@ -24,7 +24,7 @@
         <i class="bx bx-menu toggle open__menu_toggle" id="open-menu-toggle"></i>
 
         <nav class="nav_image_container">
-            <img src="static/photos/undraw_Notebook_re_id0r.svg" class="note__image" alt="image of a cartoon reading a book">
+			<img src="{{ url_for('static', filename='/photos/undraw_Notebook_re_id0r.svg') }}" class="note__image" alt="image of a cartoon reading a book">
         </nav>
 
         {% if current_user.is_authenticated %}
