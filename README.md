@@ -30,6 +30,21 @@ III. If there is an error let me know. :)
 * Search notes by subject.
 ```
 
+```
+// Programmers
+var error = false;
+if (error === true) {
+    Open an issue and let me know
+}else if(suggestions) {
+    Email me
+}else{
+  :)
+}
+
+- Users
+If you face any difficulties, Confusion, Questions or some errors Email me. Thank you !
+```
+
 •• ScreenShots
 
 # SignIn
