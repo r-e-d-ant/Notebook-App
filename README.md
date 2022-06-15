@@ -1,6 +1,5 @@
 # Notebook-App
 Notebook app made with Flask, a Python Web application framework for Back-end. And HTML/CSS, JavaScript for Front-end.
---------
 
 • You can try demo here: https://a-notebook-app.herokuapp.com/<br>
 • Hosted at Heroku
